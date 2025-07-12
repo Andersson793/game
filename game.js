@@ -1,7 +1,7 @@
 import p5 from "p5";
 
-const gridWidth = 40;
-const gridHeigth = 40;
+const gridWidth = 20;
+const gridHeigth = 20;
 const p = 950;
 const o = document.body.clientWidth;
 
@@ -98,14 +98,6 @@ function newGrid() {
       }
     }
 
-    /*
-    neighbors.forEach((b) => {
-      if (currentGrid[b.y][b.x].aLive === 1) {
-        neighborsCount++;
-      }
-    });
-    */
-
     return neighborsCount;
   }
 
@@ -136,44 +128,13 @@ function newGrid() {
     }
   }
 
-  /*
-
-  currentGrid.forEach((a, y) => {
-    a.forEach((b, x) => {
-      const neighborsLiving = {
-        count: neighborsLivingCount(b.position.x, b.position.y),
-      };
-
-      if (
-        (b.aLive === 1 && neighborsLiving.count === 2) ||
-        neighborsLiving.count === 3
-      ) {
-        nextGrid[y][x].aLive = 1;
-      }
-
-      if (b.aLive === 0 && neighborsLiving.count === 3) {
-        nextGrid[y][x].aLive = 1;
-      }
-
-      if (b.aLive === 1 && neighborsLiving.count > 3) {
-        nextGrid[y][x].aLive = 0;
-      }
-
-      if (b.aLive === 1 && neighborsLiving.count < 2) {
-        nextGrid[y][x].aLive = 0;
-      }
-    });
-  });
-
-  */
-
   currentGrid = nextGrid;
   nextGrid = grid;
 }
 
 const gridSize = {
-  width: 200,
-  height: 200,
+  width: 500,
+  height: 500,
 };
 
 const cellSize = {
@@ -194,21 +155,6 @@ const setup = (p) =>
 const draw = (p) =>
   function () {
     newGrid();
-
-    /*
-    currentGrid.forEach((a, y) => {
-      a.forEach((b, x) => {
-        if (b.aLive) p.fill(0);
-        else p.fill(250);
-
-        const width = x * cellSize.width;
-        const height = y * cellSize.height;
-
-        p.rect(width, height, gridSize.width, gridSize.height);
-      });
-    });
-
-    */
 
     for (let row = 0; row < gridHeigth; row++) {
       for (let col = 0; col < gridWidth; col++) {
