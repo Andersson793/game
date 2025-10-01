@@ -1,0 +1,10 @@
+{
+  "rules": {
+    "no-else-return": "error",
+    "sort-vars": "error"
+  },
+  "categories": {
+    "perf": "warn",
+    "suspicious": "warn"
+  }
+}
